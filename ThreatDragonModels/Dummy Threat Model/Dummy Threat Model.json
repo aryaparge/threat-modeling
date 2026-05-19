@@ -1,0 +1,16 @@
+{
+  "version": "2.6.2",
+  "summary": {
+    "title": "Dummy Threat Model",
+    "owner": "Arya ",
+    "description": "A small web application that lets registered users log their income and expenses, view spending summaries, and receive monthly email reports. An admin can manage users and view aggregate (anonymized) statistics.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [],
+    "diagramTop": 0,
+    "reviewer": "Arya",
+    "threatTop": 0
+  }
+}
