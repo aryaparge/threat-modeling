@@ -137,8 +137,8 @@
                 "text": "User Browser"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -235,9 +235,40 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "c556c70b-c5f8-4e7e-81c9-1532ac398887",
+                  "title": "Session Hijacking",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Attacker can steal JWT from HTML5 localstorage.",
+                  "mitigation": "Store session tokens in httponly cookies",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
+                },
+                {
+                  "id": "d06579d7-c9d2-410a-ad74-62e0d96ce270",
+                  "title": "No User Action Logging",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "If user disputes a transaction, there's no reliable log of what they submitted and when",
+                  "mitigation": "Log all state-changing requests with timestamp and user identity.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 1
+              }
             }
           },
           {
@@ -355,6 +386,13 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -643,14 +681,40 @@
                   "new": false,
                   "number": 4,
                   "score": ""
+                },
+                {
+                  "id": "98ff6d09-a4e8-4612-b97b-877dd300c713",
+                  "title": "Login Endpoint Flood",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "No rate limiting means an attacker can hammer the login endpoint indefinitely",
+                  "mitigation": "Implement rate limiting and account lockout after N failed attempts",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": ""
+                },
+                {
+                  "id": "b64c3949-a13e-4ed0-8b06-90a57f960c84",
+                  "title": "Unencrypted Traffic",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "If HTTPS redirect isn't enforced, credentials and financial data flow in plaintext",
+                  "mitigation": "Force HTTPS vis HSTS Header on the Web Server",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "spoofing": 0,
                 "tampering": 1,
                 "repudiation": 0,
-                "informationDisclosure": 2,
-                "denialOfService": 0,
+                "informationDisclosure": 4,
+                "denialOfService": 2,
                 "elevationOfPrivilege": 1
               }
             }
@@ -1151,7 +1215,7 @@
             },
             "vertices": [
               {
-                "x": 470,
+                "x": 550,
                 "y": 623
               }
             ]
@@ -1554,6 +1618,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Arya",
-    "threatTop": 14
+    "threatTop": 18
   }
 }
